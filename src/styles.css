@@ -1,1 +1,12 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+.errorclass {
+    color: #f00;
+    font-family: 'Roboto';
+}
+
+.attribution {
+    color: #f00;
+    font-weight: bold;
+    font-family: 'Roboto';
+}
