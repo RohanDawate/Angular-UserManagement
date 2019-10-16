@@ -2,6 +2,12 @@ import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
+// Services
+import { UserService } from '../../_services/user.service';
+
+// Models
+import { User } from 'src/app/_model/User';
+
 @Component({
   selector: 'app-add-user',
   templateUrl: './add-user.component.html',
@@ -9,9 +15,14 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 })
 export class AddUserComponent implements OnInit {
 
+  listuser: User[] = [];
   addUser: FormGroup;
+  a1: boolean;
 
-  constructor(private router: Router) { }
+  constructor(
+      private router: Router,
+      private userService: UserService
+  ) { }
 
   ngOnInit() {
     this.addUser = new FormGroup({
@@ -21,8 +32,14 @@ export class AddUserComponent implements OnInit {
     });
   }
 
-  AddUser(addUser) {
-      console.log(addUser.value);
+  AddUser() {
+    const u: User = { id: 0,
+      firstname: this.addUser.value.firstname,
+      lastname: this.addUser.value.lastname,
+      email: this.addUser.value.email
+    };
+    this.userService.addUserFromService(u);
+    this.router.navigate(['list-user']);
   }
 
   cancel() {

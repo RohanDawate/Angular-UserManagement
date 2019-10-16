@@ -3,7 +3,7 @@
     <p></p>
 
     <button class="btn btn-success" style="width:100px; margin-right: 10px;" (click)="addUser()"> Add User</button>
-    <button class="btn btn-danger" style="width:150px" (click)="logOff()"> Log Off</button>
+    <button class="btn btn-danger" style="width:100px" (click)="logOff()"> Log Off</button>
     <p></p>
 
     <table class="table table-striped table-hover table-bordered table-responsive table-condensed">
@@ -17,14 +17,14 @@
       </tr>
       </thead>
       <tbody>
-      <tr *ngFor="let u of users">
+      <tr *ngFor="let u of listusers">
         <td>{{u.id}}</td>
         <td>{{u.firstname}}</td>
         <td>{{u.lastname}}</td>
         <td>{{u.email}}</td>
         <td>
-          <button class="btn btn-danger" (click)="deleteUser(u)" style="margin-right: 10px;" > Delete </button>
-          <button class="btn btn-danger" (click)="editUser(u)"> Edit </button>
+          <button class="btn btn-danger" style="width:100px" (click)="deleteUser(u)" style="margin-right: 10px;" > Delete </button>
+          <button class="btn btn-danger" style="width:100px" (click)="editUser(u)"> Edit </button>
         </td>
       </tr>
       </tbody>

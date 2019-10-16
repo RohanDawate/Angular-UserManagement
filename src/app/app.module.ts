@@ -5,14 +5,15 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './shared/layout/header/header.component';
-import { FooterComponent } from './shared/layout/footer/footer.component';
+
+import { AuthGuard } from './_guards/auth.guard';
+
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
-import { ListUserComponent } from './user/list-user/list-user.component';
-import { AddUserComponent } from './user/add-user/add-user.component';
-import { EditUserComponent } from './user/edit-user/edit-user.component';
-import { NavBarComponent } from './nav-bar/nav-bar.component';
+
+import { ListUserComponent, AddUserComponent, EditUserComponent } from './user';
+import { HeaderComponent, FooterComponent, NavBarComponent } from './shared';
+
 
 @NgModule({
   declarations: [
@@ -32,7 +33,7 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,6 +1,9 @@
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
-import { User } from 'src/app/_model/User';
+import { User } from '../../_model/User';
+
+import { AuthenticationService } from '../../_services/authentication.service';
+import { UserService } from '../../_services/user.service';
 
 @Component({
   selector: 'app-list-user',
@@ -10,12 +13,21 @@ import { User } from 'src/app/_model/User';
 
 export class ListUserComponent implements OnInit {
 
-  users: any;
+  listusers: User[] = [];
 
-  constructor(private router: Router) { }
+  constructor(
+      private router: Router,
+      private userService: UserService,
+      private authService: AuthenticationService
+  ) { }
 
   ngOnInit() {
-    // this.users = this.msgService.getUsers();
+    this.getUsers();
+  }
+
+  getUsers() {
+    // this.userService.getUsersFromService().subscribe(data => this.listusers = data);
+    this.listusers = this.userService.getUsersFromService();
   }
 
   addUser(): void {
@@ -24,15 +36,20 @@ export class ListUserComponent implements OnInit {
 
   editUser(u: User): void {
     localStorage.setItem('editUser', JSON.stringify(u));
-    this.router.navigate(['user-edit']);
+    this.router.navigate(['edit-user']);
   }
 
   deleteUser(u: User): void {
-    // this.msgService.deleteProduct(p);
-    // this.products = this.msgService.getProducts();
+
+    if (confirm('Do you want to delete user?')) {
+      this.userService.deleteUserFromService(u);
+      this.router.navigate(['list-user']);
+      this.getUsers();
+    }
+
   }
 
   logOff(): void {
-    this.router.navigate(['']);
+    this.authService.logout();
   }
 }
