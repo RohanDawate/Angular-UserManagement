@@ -14,3 +14,8 @@
 .container {
     padding: 0 5%;
 }
+
+.span-green {
+    color: #11742C;
+    font-weight: bold;
+}
