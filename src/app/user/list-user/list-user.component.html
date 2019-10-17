@@ -2,8 +2,9 @@
     <h2 style="margin: auto">User Details ..</h2>
     <p></p>
 
-    <button class="btn btn-success" style="width:100px; margin-right: 10px;" (click)="addUser()"> Add User</button>
-    <button class="btn btn-danger" style="width:100px" (click)="logOff()"> Log Off</button>
+    <button class="btn btn-success" style="width:100px; margin-right: 10px;" (click)="addUser()"> <i class="fa fa-plus"></i> Add User</button>
+    <button class="btn btn-danger" style="width:100px" (click)="logOff()"> <i class="fa fa-sign-out"></i>Log Off</button>
+
     <p></p>
 
     <table class="table table-striped table-hover table-bordered table-responsive table-condensed">
@@ -22,9 +23,9 @@
         <td>{{u.firstname}}</td>
         <td>{{u.lastname}}</td>
         <td>{{u.email}}</td>
-        <td>
-          <button class="btn btn-danger" style="width:100px" (click)="deleteUser(u)" style="margin-right: 10px;" > Delete </button>
-          <button class="btn btn-danger" style="width:100px" (click)="editUser(u)"> Edit </button>
+        <td>          
+          <button class="btn btn-danger" style="width:120px" (click)="deleteUser(u)" style="margin-right: 10px;" > <i class="fa fa-trash"></i> Delete </button>
+          <button class="btn btn-danger" style="width:120px" (click)="editUser(u)"> <i class="fa fa-edit"></i> Edit </button>
         </td>
       </tr>
       </tbody>

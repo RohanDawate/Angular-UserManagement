@@ -1,5 +1,5 @@
 <h3>Edit User</h3>
-<button class="btn btn-danger" (click)="logOff()" style="margin-right: 10px;">Log Off</button>
+<button class="btn btn-danger" (click)="logOff()" style="margin-right: 10px;"><i class="fa fa-sign-out"></i> Log Off</button>
 
 <div>
   <form [formGroup]="editUser" (ngSubmit)="EditUser(editUser)">
@@ -48,8 +48,8 @@
           </div> 
       </div>
 
-      <button class="btn btn-success" type="submit" style="margin-right: 10px;">Update</button>
-      <button class="btn btn-danger" (click)="cancel()" style="margin-right: 10px;">Cancel</button>
+      <button class="btn btn-success" type="submit" style="margin-right: 10px;"><i class="fa fa-pencil"></i> Update</button>
+      <button class="btn btn-danger" (click)="cancel()" style="margin-right: 10px;"><i class="fa fa-remove"></i> Cancel</button>
       
   </form>
 </div>
