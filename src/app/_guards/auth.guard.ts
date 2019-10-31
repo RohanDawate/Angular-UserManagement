@@ -18,6 +18,7 @@ export class AuthGuard implements CanActivate {
       if (localStorage.getItem(this.key) != null) {
         return true;
       } else {
+        alert('Kindly login to continue');
         this.routes.navigate(['']);
         return false;
       }

@@ -29,10 +29,12 @@ export class EditUserComponent implements OnInit {
 
   ngOnInit() {
     this.editUser = this.formbuilder.group({
+      _id: [''],
       id: [''],
       firstname: ['', [Validators.required, Validators.pattern('^[a-zA-Z ]*$')]],
       lastname: ['', [Validators.required, Validators.pattern('^[a-zA-Z ]*$')]],
-      email: ['', [Validators.required, Validators.email]]
+      email: ['', [Validators.required, Validators.email]],
+      password: ['']
     });
 
     this.user = JSON.parse(localStorage.getItem('editUser'));
@@ -51,7 +53,8 @@ export class EditUserComponent implements OnInit {
       const u: User = { id: this.editUser.value.id,
                         firstname: this.editUser.value.firstname,
                         lastname: this.editUser.value.lastname,
-                        email: this.editUser.value.email
+                        email: this.editUser.value.email,
+                        password: this.editUser.value.password
                       };
       this.userService.editUserFromService(u);
       this.router.navigate(['list-user']);

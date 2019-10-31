@@ -14,6 +14,7 @@ import { UserService } from '../../_services/user.service';
 export class ListUserComponent implements OnInit {
 
   listusers: User[] = [];
+  u: User;
 
   constructor(
       private router: Router,
@@ -26,8 +27,11 @@ export class ListUserComponent implements OnInit {
   }
 
   getUsers() {
-    // this.userService.getUsersFromService().subscribe(data => this.listusers = data);
     this.listusers = this.userService.getUsersFromService();
+    // this.userService.getUsersFromJson()
+    //     .subscribe(data => this.listusers = data);
+    // this.userService.getUsersFromApi()
+    //    .subscribe(data => this.listusers = data);
   }
 
   addUser(): void {
@@ -42,6 +46,8 @@ export class ListUserComponent implements OnInit {
   deleteUser(u: User): void {
 
     if (confirm('Do you want to delete user?')) {
+      // this.userService.deleteUserFromApi(u)
+      //     .subscribe(data => u = data);
       this.userService.deleteUserFromService(u);
       this.router.navigate(['list-user']);
       this.getUsers();

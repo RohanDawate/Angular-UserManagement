@@ -28,7 +28,8 @@ export class AddUserComponent implements OnInit {
     this.addUser = new FormGroup({
       firstname: new FormControl('', [Validators.required, Validators.pattern('^[a-zA-Z ]*$')]),
       lastname: new FormControl('', [Validators.required, Validators.pattern('^[a-zA-Z ]*$')]),
-      email: new FormControl('', [Validators.required, Validators.email])
+      email: new FormControl('', [Validators.required, Validators.email]),
+      password: new FormControl('')
     });
   }
 
@@ -36,8 +37,10 @@ export class AddUserComponent implements OnInit {
     const u: User = { id: 0,
       firstname: this.addUser.value.firstname,
       lastname: this.addUser.value.lastname,
-      email: this.addUser.value.email
+      email: this.addUser.value.email,
+      password: this.addUser.value.password
     };
+    // this.userService.addUserFromApi(u);
     this.userService.addUserFromService(u);
     this.router.navigate(['list-user']);
   }

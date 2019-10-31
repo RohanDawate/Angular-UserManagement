@@ -13,6 +13,9 @@ import { LoginComponent } from './login/login.component';
 
 import { ListUserComponent, AddUserComponent, EditUserComponent } from './user';
 import { HeaderComponent, FooterComponent, NavBarComponent } from './shared';
+import { NavRightComponent } from './shared/layout/nav-right/nav-right.component';
+import { RegisterComponent } from './register/register.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 
 @NgModule({
@@ -25,7 +28,10 @@ import { HeaderComponent, FooterComponent, NavBarComponent } from './shared';
     ListUserComponent,
     AddUserComponent,
     EditUserComponent,
-    NavBarComponent
+    NavBarComponent,
+    NavRightComponent,
+    RegisterComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,

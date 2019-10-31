@@ -1,4 +1,6 @@
+import { AuthenticationService } from '../../../../app/_services/authentication.service';
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-nav-bar',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavBarComponent implements OnInit {
 
-  constructor() { }
+  constructor(private auth: AuthenticationService) { }
 
   ngOnInit() {
+  }
+
+  onLogout() {
+    this.auth.logout();
   }
 
 }

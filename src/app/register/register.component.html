@@ -1,0 +1,46 @@
+<h3>Register User</h3>
+
+<div class="jumbotron">
+    <form [formGroup]="RegisterForm" (ngSubmit)="OnSubmit()">
+        <div>
+            <label>First Name</label>
+            <input type="text" formControlName="firstname" class="form-control" name="firstname"/>
+            <div *ngIf="RegisterForm.get('firstname').touched && RegisterForm.get('firstname').invalid" class="errorclass">
+                <div *ngIf="RegisterForm.get('firstname').hasError('required')">
+                    First Name is required..
+                </div>
+            </div>
+
+            <label>Last Name</label>
+            <input type="text" formControlName="lastname" class="form-control" name="lastname"/>
+            <div *ngIf="RegisterForm.get('lastname').touched && RegisterForm.get('lastname').invalid" class="errorclass">
+                <div *ngIf="RegisterForm.get('lastname').hasError('required')">
+                    Last Name is required..
+                </div>
+            </div>
+
+            <label>Email</label>
+            <input type="text" formControlName="email" class="form-control" name="email"/>
+            <div *ngIf="RegisterForm.get('email').touched && RegisterForm.get('email').invalid" class="errorclass">
+                <div *ngIf="RegisterForm.get('email').hasError('required')">
+                    Email is required..
+                </div>
+                <div *ngIf="RegisterForm.get('email').hasError('email')">
+                    Please enter valid email
+                </div>
+            </div>
+
+            <label>Password</label>
+            <input type="password" formControlName="password" class="form-control" name="password"/>
+            <div *ngIf="RegisterForm.get('password').touched && RegisterForm.get('password').invalid" class="errorclass">
+                <div *ngIf="RegisterForm.get('password').hasError('required')">
+                    Password is required..
+                </div>
+            </div>
+
+            <br>
+            <button class="btn btn-success" type="submit" style="margin-right: 10px;"><i class="fa fa-save"></i> Register</button>
+            <button class="btn btn-warning" type="button" (click)="ClearForm();"><i class="fa fa-remove"></i> Clear</button>
+        </div>        
+    </form>
+</div>
